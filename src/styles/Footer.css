@@ -1,0 +1,45 @@
+footer {
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 20px;
+    margin-top:10px;
+    border: 1px solid rgb(183, 183, 183);
+}
+
+footer a {
+    color: rgb(0, 140, 255);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer .text{
+    margin: 10px 0px;
+    color: rgb(118, 117, 117);
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: rgb(0, 140, 255);;
+}
+
+
+@media (max-width: 400px) {
+    footer {
+        padding: 10px;
+    }
+    
+    footer a {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 1240px) {
+    footer {
+        padding: 15px;
+    }
+    
+    footer a {
+        font-size: 14px;
+    }
+}

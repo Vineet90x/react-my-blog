@@ -1,0 +1,169 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .featured-post {
+    background-color: #343a40;
+    color: white;
+    padding: 4rem;
+    margin: 0% 3%;
+    border-radius: 5px;
+  }
+  
+  .featured-content {
+    max-width: 600px;
+    margin: 0 ;
+    text-align: left;
+  }
+  
+  .featured-content h1 {
+    font-size: 3.4rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    font-family: "Playfair Display", serif;
+    font-style: italic;
+  }
+  
+  .featured-content p {
+    font-size: 1.25rem;
+    font-weight: lighter;
+    line-height: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .featured-content a {
+    font-size: 1.125rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .featured-content a:hover {
+    text-decoration: underline;
+  }
+  
+  .post-cards {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    gap: 20px;  
+  }
+  
+  .post-card {
+    display: flex;
+    width: 48%;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .post-text {
+    padding: 1rem;
+    width: 60%;
+    margin: 0;
+  }
+  
+  .post-thumbnail {
+    width: 40%;
+    background-color: #343a40;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .post-text .category {
+    color: #007bff;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .post-text .category2 {
+    color: #30bf04;
+    font-size: 0.875rem;
+    font-weight: bold;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+  
+  .post-text h2 {
+    font-size: 1.5rem;
+    margin: 0.5rem 0rem;
+    font-family: "Playfair Display", serif;
+  }
+  
+  .post-text p {
+    font-size: 0.875rem;
+    color: gray;
+    margin-bottom: 0.5rem;
+  }
+  
+  .post-text a {
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .post-text a:hover {
+    text-decoration: underline;
+  }
+  
+  .post-text .content{
+    color: #050505;
+    margin-bottom: 20px;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 400px) {
+    .featured-post {
+        padding: 2rem;
+        margin: 0 2%;
+    }
+
+    .featured-content h1 {
+        font-size: 2rem;
+    }
+
+    .featured-content p {
+        font-size: 1rem;
+    }
+
+    .post-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post-card {
+        width: 90%;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (min-width: 401px) and (max-width: 1240px) {
+    .featured-post {
+        padding: 3rem;
+        margin: 0 2%;
+    }
+
+    .featured-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .featured-content p {
+        font-size: 1.125rem;
+    }
+
+    .post-cards {
+        flex-wrap: wrap;
+    }
+
+    .post-card {
+        width: 48%;
+    }
+}
