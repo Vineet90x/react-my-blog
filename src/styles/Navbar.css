@@ -13,6 +13,7 @@
     align-items: center;
     padding: 1rem;
     border-bottom: 1px solid #e0e0e0;
+    position: sticky;
   }
   
   .nav-left {
@@ -96,63 +97,104 @@
   /* Responsive Styles */
   @media (max-width: 1240px) {
     .nav-bar {
-      flex-direction: column;
-      align-items: flex-start;
+        flex-direction: row; /* Keep the row direction */
+        align-items: center; /* Center align vertically */
+        justify-content: space-between; /* Distribute space between elements */
     }
-  
+
     .nav-left {
-      text-align: left;
-      width: 100%;
+        display: block; /* Ensure the sign-up button is visible */
+        order: 1; /* Make sure it's on the left */
     }
-  
+
     .nav-center {
-      width: 100%;
+        text-align: center;
+        flex: 1; /* Allow the logo to take the center space */
+        order: 2; /* Place in the middle */
     }
-  
+
     .nav-right {
-      width: 100%;
-      justify-content: space-between;
-      margin-top: 10px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        order: 3; /* Keep the menu on the right */
     }
-  
-    .hamburger {
-      display: block;
+    
+    .nav-right .fa-search {
+        display: none; /* Hide search if needed */
     }
-  
-    .nav-links {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #f8f9fa;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      border-top: 1px solid #e0e0e0;
-    }
-  
-    .nav-links.open {
-      display: flex;
-    }
-  
-    .nav-links a {
-      margin: 10px 20px;
-      font-size: 16px;
-      color: gray;
-    }
-  }
-  
-  @media (max-width: 400px) {
-    .nav-center h1 {
-      font-size: 18px;
-    }
-  
+
     .nav-right .sign-up {
-      font-size: 12px;
+        padding: 5%;
     }
-  
+
+    .hamburger {
+        display: block;
+        align-items: flex-end;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #f8f9fa;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        border-top: 1px solid #e0e0e0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
     .nav-links a {
-      font-size: 14px;
+        margin: 10px 20px;
+        font-size: 16px;
+        color: gray;
     }
+}
+
+@media (max-width: 400px) {
+  .nav-bar {
+      flex-direction: row; /* Keep elements in a row */
+      justify-content: space-between; /* Space out elements evenly */
+      align-items: center; /* Vertically center align */
+      
   }
+
+  .nav-left {
+      display: block; /* Ensure the sign-up button is visible */
+      order: 1; /* Keep it on the left */
+  }
+
+  .nav-center {
+      text-align: center;
+      flex: 1; /* Allow the logo to occupy the center space */
+      order: 2; /* Place it in the middle */
+      font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .nav-right {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      order: 3; /* Keep the menu on the right */
+  }
+
+  .nav-right .sign-up {
+      font-size: 8px; /* Adjust font size for smaller screens */
+  }
+
+  .hamburger {
+      display: block; /* Ensure the hamburger menu is visible */
+      align-items: flex-end;
+      font-size: 20px; /* Adjust the icon size if needed */
+  }
+
+  .nav-links a {
+      font-size: 14px; /* Adjust link font size for readability */
+  }
+}
 
   
