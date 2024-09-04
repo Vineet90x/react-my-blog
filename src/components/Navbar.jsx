@@ -1,19 +1,28 @@
 import React, { useState, useRef, useEffect } from 'react';
-import "../styles/Navbar.css";
+import { AppBar, Toolbar, IconButton, Typography, Drawer, List, ListItem, ListItemText } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
 import { Link } from 'react-router-dom';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import "../styles/Navbar.css";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef(null);
+  const isTabletOrSmaller = useMediaQuery('(max-width: 768px)');
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const toggleMenu = (event) => {
+    event.stopPropagation();
+    setIsMenuOpen((prev) => !prev);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setIsMenuOpen(false);
+        closeMenu();
       }
     };
 
@@ -24,16 +33,15 @@ const Navbar = () => {
     };
   }, []);
 
-  
-  return (
+  const renderDesktopNavbar = () => (
     <>
       <nav className="nav-bar">
         <div className="nav-left">
           <Link to="/">Subscribe</Link>
         </div>
         <div className="nav-center">
-        <Link to="/">
-          <h1>Large</h1>
+          <Link to="/">
+            <h1>Large</h1>
           </Link>
         </div>
         <div className="nav-right">
@@ -62,6 +70,62 @@ const Navbar = () => {
       </div>
     </>
   );
+
+  const renderMobileNavbar = () => (
+    <AppBar position="static" sx={{ backgroundColor: 'white', color: 'black', fontFamily: 'Playfair Display, serif' }}>
+      <Toolbar>
+        <IconButton edge="start" color="inherit" aria-label="menu" onClick={toggleMenu}>
+          <MenuIcon />
+        </IconButton>
+        <Typography variant="h6" component="div" sx={{ flexGrow: 1, fontFamily: 'Playfair Display, serif' }}>
+          Large
+        </Typography>
+        <Link to="/signup" style={{ color: 'black', textDecoration: 'none', fontFamily: 'Playfair Display, serif' }}>Sign up</Link>
+      </Toolbar>
+      <Drawer anchor="left" open={isMenuOpen} onClose={closeMenu}>
+        <List ref={menuRef} sx={{ fontFamily: 'Playfair Display, serif' }}>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="World" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="U.S." />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Technology" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Design" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Culture" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Business" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Politics" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Opinion" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Science" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Health" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Style" />
+          </ListItem>
+          <ListItem button component={Link} to="/" onClick={closeMenu}>
+            <ListItemText primary="Travel" />
+          </ListItem>
+        </List>
+      </Drawer>
+    </AppBar>
+  );
+
+  return isTabletOrSmaller ? renderMobileNavbar() : renderDesktopNavbar();
 };
 
 export default Navbar;
